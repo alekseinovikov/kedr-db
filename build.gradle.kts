@@ -26,7 +26,9 @@ allprojects {
         implementation("io.quarkus:quarkus-logging-json")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         implementation("io.quarkus:quarkus-arc")
+
         testImplementation("io.quarkus:quarkus-junit5")
+        testImplementation("io.rest-assured:rest-assured")
     }
 
     java {
@@ -43,6 +45,10 @@ allprojects {
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
         kotlinOptions.javaParameters = true
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 }
 
