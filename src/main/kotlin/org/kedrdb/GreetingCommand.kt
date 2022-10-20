@@ -1,16 +1,14 @@
 package org.kedrdb
 
-import picocli.CommandLine
-import picocli.CommandLine.Command
-import picocli.CommandLine.Parameters
+import io.quarkus.runtime.QuarkusApplication
+import io.quarkus.runtime.annotations.QuarkusMain
 
-@Command(name = "greeting", mixinStandardHelpOptions = true)
-class GreetingCommand : Runnable {
+@Suppress("unused")
+@QuarkusMain
+class Main: QuarkusApplication {
+    override fun run(vararg args: String?): Int {
+        println("HELLO!")
 
-    @Parameters(paramLabel = "<name>", defaultValue = "picocli", description = ["Your name."])
-    var name: String? = null
-    override fun run() {
-        System.out.printf("Hello %s, go go commando!\n", name)
+        return 0
     }
-
 }
