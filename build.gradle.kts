@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.7.20"
     kotlin("plugin.allopen") version "1.7.20"
+    id("com.github.vlsi.jandex") version "1.82"
     id("io.quarkus")
 }
 
@@ -19,6 +20,7 @@ allprojects {
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
+    apply(plugin = "com.github.vlsi.jandex")
 
     dependencies {
         implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
@@ -28,7 +30,7 @@ allprojects {
         implementation("io.quarkus:quarkus-arc")
 
         testImplementation("io.quarkus:quarkus-junit5")
-        testImplementation("io.rest-assured:rest-assured")
+        testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     }
 
     java {
