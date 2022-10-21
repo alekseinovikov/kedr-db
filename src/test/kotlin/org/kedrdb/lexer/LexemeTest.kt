@@ -22,16 +22,19 @@ class LexemeTest {
     @Test
     @DisplayName("Simple 2+2 lexemes = '2' '+' '2'")
     fun simpleThreeLexemes() {
-        val source = provider.get("2+2")
-
-        val lexemes = lexer.parse(source)
         assertContentEquals(
             sequenceOf(
                 NumInt("2", 2),
                 OpPlus("+"),
                 NumInt("2", 2)
-            ), lexemes
+            ), lexer.parse(provider.get("2+2"))
         )
+    }
+
+    @Test
+    @DisplayName("Empty query empty lexemes")
+    fun emptyQuery() {
+        assertContentEquals(sequenceOf(), lexer.parse(provider.get("")))
     }
 
 }
