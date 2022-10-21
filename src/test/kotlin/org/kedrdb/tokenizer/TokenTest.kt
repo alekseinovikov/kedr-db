@@ -24,9 +24,9 @@ class TokenTest {
     fun simpleThreeTokens() {
         assertContentEquals(
             sequenceOf(
-                NumInt("2", 2),
+                NumInt("2"),
                 OpPlus("+"),
-                NumInt("2", 2)
+                NumInt("2")
             ), tokenizer.parse(provider.get("2+2"))
         )
     }
