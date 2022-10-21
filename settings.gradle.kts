@@ -14,5 +14,5 @@ rootProject.name = "kedr-db"
 
 include(
     "core",
-    "lexer"
+    "tokenizer"
 )

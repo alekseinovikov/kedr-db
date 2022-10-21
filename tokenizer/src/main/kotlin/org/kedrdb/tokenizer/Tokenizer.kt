@@ -1,9 +1,9 @@
-package org.kedrdb.lexer
+package org.kedrdb.tokenizer
 
 import org.kedrdb.core.Source
 
-interface Lexer {
-    fun parse(querySource: Source<Query>): Sequence<Lexeme>
+interface Tokenizer {
+    fun parse(querySource: Source<Query>): Sequence<Token>
 }
 
 interface Query {

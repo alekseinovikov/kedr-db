@@ -57,5 +57,5 @@ allprojects {
 apply(plugin = "io.quarkus")
 dependencies {
     implementation(project(":core"))
-    implementation(project(":lexer"))
+    implementation(project(":tokenizer"))
 }

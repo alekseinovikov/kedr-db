@@ -1,7 +1,8 @@
-package org.kedrdb.lexer.impl
+package org.kedrdb.tokenizer.impl
 
 import org.junit.jupiter.api.Test
-import org.kedrdb.lexer.QueryChar
+import org.kedrdb.tokenizer.QueryChar
+import org.kedrdb.tokenizer.impl.StringQuerySourceProvider
 
 class CharQuerySourceProviderTest {
 

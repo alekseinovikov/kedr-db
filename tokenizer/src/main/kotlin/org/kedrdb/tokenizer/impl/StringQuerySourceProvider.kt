@@ -1,9 +1,9 @@
-package org.kedrdb.lexer.impl
+package org.kedrdb.tokenizer.impl
 
 import org.kedrdb.core.Source
 import org.kedrdb.core.SourceProvider
-import org.kedrdb.lexer.Query
-import org.kedrdb.lexer.QueryChar
+import org.kedrdb.tokenizer.Query
+import org.kedrdb.tokenizer.QueryChar
 import javax.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
