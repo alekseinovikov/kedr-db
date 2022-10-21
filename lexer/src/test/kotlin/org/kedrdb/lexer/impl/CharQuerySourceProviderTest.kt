@@ -1,9 +1,9 @@
 package org.kedrdb.lexer.impl
 
 import org.junit.jupiter.api.Test
-import org.kedrdb.lexer.QueryLine
+import org.kedrdb.lexer.QueryChar
 
-class StringQuerySourceProviderTest {
+class CharQuerySourceProviderTest {
 
     private val provider = StringQuerySourceProvider()
 
@@ -19,8 +19,8 @@ class StringQuerySourceProviderTest {
         val source = provider.get(lines)
         val query = source.get()!!
 
-        lines.lines().forEach {
-            assert(QueryLine(it) == query.getNextLine())
+        lines.toCharArray().forEach {
+            assert(QueryChar(it) == query.getNextChar())
         }
     }
 

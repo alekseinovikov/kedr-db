@@ -7,8 +7,8 @@ interface Lexer {
 }
 
 interface Query {
-    fun getNextLine(): QueryLine?
+    fun getNextChar(): QueryChar?
 }
 
 @JvmInline
-value class QueryLine(val line: String)
+value class QueryChar(val char: Char)

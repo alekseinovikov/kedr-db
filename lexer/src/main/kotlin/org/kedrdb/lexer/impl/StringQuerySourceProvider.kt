@@ -3,20 +3,21 @@ package org.kedrdb.lexer.impl
 import org.kedrdb.core.Source
 import org.kedrdb.core.SourceProvider
 import org.kedrdb.lexer.Query
-import org.kedrdb.lexer.QueryLine
+import org.kedrdb.lexer.QueryChar
 import javax.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 internal class StringQuerySourceProvider : SourceProvider<String, Query> {
-    override fun get(arg: String): Source<Query> = StringQuerySource(arg)
+    override fun get(arg: String): Source<Query> = CharQuerySource(arg)
 }
 
-internal class StringQuerySource(str: String) : Source<Query> {
-    private val lines = str.lines()
-    override fun get(): Query = StringQuery(lines)
+internal class CharQuerySource(private val str: String) : Source<Query> {
+    override fun get(): Query = CharQuery(str)
 }
 
-internal class StringQuery(lines: List<String>) : Query {
-    private val iterator = lines.iterator()
-    override fun getNextLine(): QueryLine? = if (iterator.hasNext()) QueryLine(iterator.next()) else null
+internal class CharQuery(lines: String) : Query {
+    private val iterator = lines.asSequence().iterator()
+    override fun getNextChar(): QueryChar? {
+        return if (iterator.hasNext()) QueryChar(iterator.next()) else null
+    }
 }
