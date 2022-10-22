@@ -1,6 +1,7 @@
 package org.kedrdb.tokenizer
 
 import org.kedrdb.core.Source
+import org.kedrdb.tokenizer.tokens.Token
 
 interface Tokenizer {
     fun parse(querySource: Source<Query>): Sequence<Token>

@@ -2,7 +2,9 @@ package org.kedrdb.tokenizer.impl
 
 import org.kedrdb.core.WrongCharacterException
 import org.kedrdb.tokenizer.Query
-import org.kedrdb.tokenizer.Token
+import org.kedrdb.tokenizer.tokens.Number.NumInt
+import org.kedrdb.tokenizer.tokens.Operation.OpPlus
+import org.kedrdb.tokenizer.tokens.Token
 
 internal class QueryTokenMachine(private val query: Query) {
     private val delimiters = setOf(' ', '\n', '\t')
@@ -81,7 +83,7 @@ internal class QueryTokenMachine(private val query: Query) {
     private fun resetCurrentTokens() {
         activeTokens.clear()
 
-        activeTokens.add(Token.Operation.OpPlus())
-        activeTokens.add(Token.Number.NumInt())
+        activeTokens.add(OpPlus())
+        activeTokens.add(NumInt())
     }
 }

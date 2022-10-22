@@ -1,7 +1,7 @@
 package org.kedrdb.tokenizer.impl
 
 import org.kedrdb.core.Source
-import org.kedrdb.tokenizer.Token
+import org.kedrdb.tokenizer.tokens.Token
 import org.kedrdb.tokenizer.Tokenizer
 import org.kedrdb.tokenizer.Query
 import javax.enterprise.context.ApplicationScoped

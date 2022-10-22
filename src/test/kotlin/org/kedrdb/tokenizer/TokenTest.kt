@@ -4,8 +4,8 @@ import io.quarkus.test.junit.QuarkusTest
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.kedrdb.core.SourceProvider
-import org.kedrdb.tokenizer.Token.Number.*
-import org.kedrdb.tokenizer.Token.Operation.*
+import org.kedrdb.tokenizer.tokens.Number
+import org.kedrdb.tokenizer.tokens.Operation
 import javax.inject.Inject
 import kotlin.test.assertContentEquals
 
@@ -24,9 +24,9 @@ class TokenTest {
     fun simpleThreeTokens() {
         assertContentEquals(
             sequenceOf(
-                NumInt("2"),
-                OpPlus("+"),
-                NumInt("2")
+                Number.NumInt("2"),
+                Operation.OpPlus("+"),
+                Number.NumInt("2")
             ), tokenizer.parse(provider.get("2+2"))
         )
     }
