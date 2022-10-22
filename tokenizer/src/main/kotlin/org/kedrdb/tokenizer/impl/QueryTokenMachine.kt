@@ -2,6 +2,7 @@ package org.kedrdb.tokenizer.impl
 
 import org.kedrdb.core.WrongCharacterException
 import org.kedrdb.tokenizer.Query
+import org.kedrdb.tokenizer.tokens.KeyWord.*
 import org.kedrdb.tokenizer.tokens.Number.NumInt
 import org.kedrdb.tokenizer.tokens.Operation.OpPlus
 import org.kedrdb.tokenizer.tokens.Token
@@ -83,6 +84,13 @@ internal class QueryTokenMachine(private val query: Query) {
     private fun resetCurrentTokens() {
         activeTokens.clear()
 
+        activeTokens.add(KeyWordFrom())
+        activeTokens.add(KeyWordAnd())
+        activeTokens.add(KeyWordWhere())
+        activeTokens.add(KeyWordSelect())
+        activeTokens.add(KeyWordCreate())
+        activeTokens.add(KeyWordTable())
+        activeTokens.add(KeyWordDelete())
         activeTokens.add(OpPlus())
         activeTokens.add(NumInt())
     }
